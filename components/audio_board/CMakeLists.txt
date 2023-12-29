@@ -134,4 +134,13 @@ set(COMPONENT_SRCS
 )
 endif()
 
+if (CONFIG_ESP32_S3_DEVKIT_BOARD)
+message(STATUS "Current board name is " CONFIG_ESP32_S3_DEVKIT_BOARD)
+list(APPEND COMPONENT_ADD_INCLUDEDIRS ./esp32_s3_devkit)
+set(COMPONENT_SRCS
+./esp32_s3_devkit/board.c
+./esp32_s3_devkit/board_pins_config.c
+)
+endif()
+
 register_component()
