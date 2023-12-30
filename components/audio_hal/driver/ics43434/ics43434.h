@@ -98,17 +98,6 @@ esp_err_t ics43434_adc_set_voice_volume(int volume);
  */
 esp_err_t ics43434_adc_get_voice_volume(int *volume);
 
-/**
- * @brief Set adc I2C address
- *
- * @param[in] addr:  value of I2C address
- *
- * @return
- *     - ESP_OK
- *     - ESP_FAIL
- */
-esp_err_t ics43434_adc_set_addr(int addr);
-
 #ifdef __cplusplus
 }
 #endif

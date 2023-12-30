@@ -24,7 +24,6 @@
 
 #include <string.h>
 #include "ics43434.h"
-#include "i2c_bus.h"
 #include "board.h"
 #include "esp_log.h"
 
@@ -35,8 +34,6 @@
     }
 
 static char *TAG = "DRV43434";
-static i2c_bus_handle_t i2c_handle;
-static int ics43434_addr = 0x26;
 
 audio_hal_func_t AUDIO_CODEC_ICS43434_DEFAULT_HANDLE = {
     .audio_codec_initialize = ics43434_adc_init,
@@ -50,35 +47,8 @@ audio_hal_func_t AUDIO_CODEC_ICS43434_DEFAULT_HANDLE = {
     .handle = NULL,
 };
 
-// static esp_err_t ics43434_write_reg(uint8_t reg_add, uint8_t data)
-// {
-//     return i2c_bus_write_bytes(i2c_handle, ics43434_addr, &reg_add, sizeof(reg_add), &data, sizeof(data));
-// }
-
-static int i2c_init()
-{
-    int res = 0;
-    i2c_config_t es_i2c_cfg = {
-        .mode = I2C_MODE_MASTER,
-        .sda_pullup_en = GPIO_PULLUP_ENABLE,
-        .scl_pullup_en = GPIO_PULLUP_ENABLE,
-        .master.clk_speed = 100000,
-    };
-    res = get_i2c_pins(I2C_NUM_0, &es_i2c_cfg);
-    ES_ASSERT(res, "getting i2c pins error", -1);
-    i2c_handle = i2c_bus_create(I2C_NUM_0, &es_i2c_cfg);
-    return res;
-}
-
-esp_err_t ics43434_adc_set_addr(int addr)
-{
-    ics43434_addr = addr;
-    return ESP_OK;
-}
-
 esp_err_t ics43434_adc_init(audio_hal_codec_config_t *codec_cfg)
 {
-    i2c_init();
     return ESP_OK;
 }
 
