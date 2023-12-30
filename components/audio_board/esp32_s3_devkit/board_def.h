@@ -54,7 +54,7 @@
 #define HEADPHONE_DETECT            -1
 #define CODEC_ADC_I2S_PORT          (0)
 #define CODEC_ADC_BITS_PER_SAMPLE   I2S_BITS_PER_SAMPLE_16BIT
-#define CODEC_ADC_SAMPLE_RATE       (16000)
+#define CODEC_ADC_SAMPLE_RATE       (48000)
 #define RECORD_HARDWARE_AEC         (false)
 #define BOARD_PA_GAIN               (0) /* Power amplifier gain defined by board (dB) */
 
@@ -65,9 +65,9 @@ extern audio_hal_func_t AUDIO_CODEC_ICS43434_DEFAULT_HANDLE;
         .codec_mode = AUDIO_HAL_CODEC_MODE_BOTH,        \
         .i2s_iface = {                                  \
             .mode = AUDIO_HAL_MODE_SLAVE,               \
-            .fmt = AUDIO_HAL_I2S_LEFT,                  \
-            .samples = AUDIO_HAL_16K_SAMPLES,           \
-            .bits = AUDIO_HAL_BIT_LENGTH_24BITS,        \
+            .fmt = AUDIO_HAL_I2S_NORMAL,                  \
+            .samples = AUDIO_HAL_48K_SAMPLES,           \
+            .bits = AUDIO_HAL_BIT_LENGTH_16BITS,        \
         },                                              \
 };
 
