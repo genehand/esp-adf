@@ -34,15 +34,15 @@ static const char *TAG = "ESP32_S3_DEVKIT";
 esp_err_t get_i2c_pins(i2c_port_t port, i2c_config_t *i2c_config)
 {
     AUDIO_NULL_CHECK(TAG, i2c_config, return ESP_FAIL);
-    if (port == I2C_NUM_0 || port == I2C_NUM_1) {
-        i2c_config->sda_io_num = GPIO_NUM_8;
-        i2c_config->scl_io_num = GPIO_NUM_18;
-    } else {
+    // if (port == I2C_NUM_0 || port == I2C_NUM_1) {
+    //     i2c_config->sda_io_num = GPIO_NUM_8;
+    //     i2c_config->scl_io_num = GPIO_NUM_18;
+    // } else {
         i2c_config->sda_io_num = -1;
         i2c_config->scl_io_num = -1;
         ESP_LOGE(TAG, "i2c port %d is not supported", port);
         return ESP_FAIL;
-    }
+    // }
     return ESP_OK;
 }
 
