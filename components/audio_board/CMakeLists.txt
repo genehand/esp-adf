@@ -134,4 +134,13 @@ set(COMPONENT_SRCS
 )
 endif()
 
+if (CONFIG_AUDIO_BOARD_CUSTOM)
+message(STATUS "Current board name is " CONFIG_AUDIO_BOARD_CUSTOM)
+list(APPEND COMPONENT_ADD_INCLUDEDIRS ./esp32_s3_devkit)
+set(COMPONENT_SRCS
+./esp32_s3_devkit/board.c
+./esp32_s3_devkit/board_pins_config.c
+)
+endif()
+
 register_component()
