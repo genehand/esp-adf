@@ -2,7 +2,7 @@ menu "Audio HAL"
 
 choice AUDIO_BOARD
     prompt "Audio board"
-    default ESP_LYRAT_V4_3_BOARD
+    default ESP32_S3_DEVKIT_BOARD
     help
         Select an audio board to use with the ESP-ADF
 config AUDIO_BOARD_CUSTOM
